@@ -27,6 +27,10 @@ scripts, including [[tests for DSL scripts|Testing DSL Scripts]] and [[IDE Suppo
 
 Browse the Jenkins issue tracker to see any [open issues](https://issues.jenkins-ci.org/issues/?filter=15140).
 
+## Zenterio Customizations
+* Support for [ConsoleLogToWorkspace Plugin](https://github.com/devconsoft/jenkins-log-console-log)
+    ([JENKINS-45760])(https://issues.jenkins-ci.org/browse/JENKINS-45760))
+
 ## Release Notes
 * 1.71 (unreleased)
 * 1.70 (July 03 2018)

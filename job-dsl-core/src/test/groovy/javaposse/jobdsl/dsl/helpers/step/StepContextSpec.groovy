@@ -3778,4 +3778,35 @@ class StepContextSpec extends Specification {
         }
         1 * jobManagement.requireMinimumPluginVersion('phing', '0.13.3')
     }
+
+    def 'call consoleLogToWorkspace with defaults'() {
+        when:
+        context.consoleLogToWorkspace('console.log')
+
+        then:
+        context.stepNodes.size() == 1
+        def node = context.stepNodes[0]
+        node.name() == 'hudson.plugins.ConsoleLogToWorkspace.ConsoleLogToWorkspaceBuildStep'
+        node.fileName[0].value() == 'console.log'
+        node.blockOnAllOutput[0].value() == true
+        node.writeConsoleLog[0].value() == true
+        1 * jobManagement.requireMinimumPluginVersion('console-log-to-workspace', '1.1')
+    }
+
+    def 'call consoleLogToWorkspace with all options'() {
+        when:
+        context.consoleLogToWorkspace('console.log') {
+            blockOnAllOutput(false)
+            writeConsoleLog(false)
+        }
+
+        then:
+        context.stepNodes.size() == 1
+        def node = context.stepNodes[0]
+        node.name() == 'hudson.plugins.ConsoleLogToWorkspace.ConsoleLogToWorkspaceBuildStep'
+        node.fileName[0].value() == 'console.log'
+        node.blockOnAllOutput[0].value() == false
+        node.writeConsoleLog[0].value() == false
+        1 * jobManagement.requireMinimumPluginVersion('console-log-to-workspace', '1.1')
+    }
 }
