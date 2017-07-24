@@ -46,6 +46,8 @@ Browse the Jenkins issue tracker to see any [open issues](https://issues.jenkins
   * Support for sandbox mode for System groovy scripts, for the
     [Groovy Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Groovy+plugin)
     ([JENKINS-44256](https://issues.jenkins-ci.org/browse/JENKINS-44256))
+  * Support for [ConsoleLogToWorkspace Plugin](https://github.com/devconsoft/jenkins-log-console-log)
+    ([JENKINS-45760])(https://issues.jenkins-ci.org/browse/JENKINS-45760))
 * 1.63 (May 09 2017)
   * Fixed problem with special characters in job, folder and view names
     ([JENKINS-44140](https://issues.jenkins-ci.org/browse/JENKINS-44140))

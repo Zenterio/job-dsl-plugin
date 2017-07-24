@@ -1322,6 +1322,22 @@ class StepContext extends AbstractExtensibleContext {
     }
 
     /**
+     * @param fileName
+     *
+     * @since 1.64.1
+     */
+    @RequiresPlugin(id = 'ConsoleLogToWorkspace', minimumVersion = '1.1')
+    void consoleLogToWorkspace(String fileName, @DslContext(ConsoleLogToWorkspaceContext) Closure closure = null) {
+        ConsoleLogToWorkspaceContext context = new ConsoleLogToWorkspaceContext()
+        ContextHelper.executeInContext(closure, context)
+        stepNodes << new NodeBuilder().'hudson.plugins.ConsoleLogToWorkspace.ConsoleLogToWorkspaceBuildStep' {
+            delegate.fileName(fileName)
+            writeConsoleLog(context.writeConsoleLog)
+            blockOnAllOutput(context.blockOnAllOutput)
+        }
+    }
+
+    /**
      * @since 1.35
      */
     protected StepContext newInstance() {
