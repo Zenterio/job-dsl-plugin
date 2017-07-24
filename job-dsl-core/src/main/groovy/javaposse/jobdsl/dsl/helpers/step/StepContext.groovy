@@ -1326,7 +1326,7 @@ class StepContext extends AbstractExtensibleContext {
      *
      * @since 1.64.1
      */
-    @RequiresPlugin(id = 'ConsoleLogToWorkspace', minimumVersion = '1.1')
+    @RequiresPlugin(id = 'console-log-to-workspace', minimumVersion = '1.1')
     void consoleLogToWorkspace(String fileName, @DslContext(ConsoleLogToWorkspaceContext) Closure closure = null) {
         ConsoleLogToWorkspaceContext context = new ConsoleLogToWorkspaceContext()
         ContextHelper.executeInContext(closure, context)

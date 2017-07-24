@@ -3965,7 +3965,7 @@ class StepContextSpec extends Specification {
         node.fileName[0].value() == 'console.log'
         node.blockOnAllOutput[0].value() == true
         node.writeConsoleLog[0].value() == true
-        1 * jobManagement.requireMinimumPluginVersion('ConsoleLogToWorkspace', '1.1')
+        1 * jobManagement.requireMinimumPluginVersion('console-log-to-workspace', '1.1')
     }
 
     def 'call consoleLogToWorkspace with all options'() {
@@ -3982,6 +3982,6 @@ class StepContextSpec extends Specification {
         node.fileName[0].value() == 'console.log'
         node.blockOnAllOutput[0].value() == false
         node.writeConsoleLog[0].value() == false
-        1 * jobManagement.requireMinimumPluginVersion('ConsoleLogToWorkspace', '1.1')
+        1 * jobManagement.requireMinimumPluginVersion('console-log-to-workspace', '1.1')
     }
 }
