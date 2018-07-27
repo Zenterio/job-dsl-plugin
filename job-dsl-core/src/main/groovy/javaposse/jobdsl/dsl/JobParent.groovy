@@ -2,6 +2,7 @@ package javaposse.jobdsl.dsl
 
 import groovy.transform.ThreadInterrupt
 import javaposse.jobdsl.dsl.helpers.ConfigFilesContext
+import javaposse.jobdsl.dsl.jobs.BuildFlowJob
 import javaposse.jobdsl.dsl.jobs.FreeStyleJob
 import javaposse.jobdsl.dsl.jobs.IvyJob
 import javaposse.jobdsl.dsl.jobs.MatrixJob
@@ -44,6 +45,14 @@ abstract class JobParent extends Script implements DslFactory {
     @Override
     FreeStyleJob freeStyleJob(String name, @DslContext(FreeStyleJob) Closure closure = null) {
         processItem(name, FreeStyleJob, closure)
+    }
+
+    /**
+     * @since 1.30
+     */
+    @Override
+    BuildFlowJob buildFlowJob(String name, @DslContext(BuildFlowJob) Closure closure = null) {
+        processItem(name, BuildFlowJob, closure)
     }
 
     /**

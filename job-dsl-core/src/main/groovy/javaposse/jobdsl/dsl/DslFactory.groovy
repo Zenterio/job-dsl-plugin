@@ -1,6 +1,7 @@
 package javaposse.jobdsl.dsl
 
 import javaposse.jobdsl.dsl.helpers.ConfigFilesContext
+import javaposse.jobdsl.dsl.jobs.BuildFlowJob
 import javaposse.jobdsl.dsl.jobs.FreeStyleJob
 import javaposse.jobdsl.dsl.jobs.IvyJob
 import javaposse.jobdsl.dsl.jobs.MatrixJob
@@ -41,6 +42,23 @@ interface DslFactory extends ViewFactory {
      * @since 1.31
      */
     FreeStyleJob freeStyleJob(String name, @DslContext(FreeStyleJob) Closure closure)
+
+    /**
+     * Creates or update a job for managing Jenkins jobs orchestration using a dedicated DSL.
+     *
+     * @since 1.30
+     * @see #buildFlowJob(java.lang.String, groovy.lang.Closure)
+     */
+    @RequiresPlugin(id = 'build-flow-plugin', failIfMissing = true)
+    BuildFlowJob buildFlowJob(String name)
+
+    /**
+     * Creates or update a job for managing Jenkins jobs orchestration using a dedicated DSL.
+     *
+     * @since 1.31
+     */
+    @RequiresPlugin(id = 'build-flow-plugin', failIfMissing = true)
+    BuildFlowJob buildFlowJob(String name, @DslContext(BuildFlowJob) Closure closure)
 
     /**
      * Creates or updates a job to build an Ivy project.
